@@ -1,0 +1,7 @@
+cd into ebay and run
+compound server 3000
+
+http://localhost:3000/ebaysale
+
+tutorial
+http://nyukapiszka.wordpress.com/2013/02/16/node-js-mvc-frameworks-getting-started-with-compoundjs/

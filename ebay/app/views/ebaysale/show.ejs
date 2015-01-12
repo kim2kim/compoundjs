@@ -1,0 +1,32 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.ebaysales %>">ebaysales</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Details of ebaysale</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Details of ebaysale</h1>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>id</th><td><%= ebaysale.id %></td></tr>
+
+        <tr><th>transaction_id</th><td><%= ebaysale.transaction_id %></td></tr>
+
+        <tr><th>item_id</th><td><%= ebaysale.item_id %></td></tr>
+
+        <tr><th>ebay_id</th><td><%= ebaysale.ebay_id %></td></tr>
+
+        <tr><th>actual_shipping_cost</th><td><%= ebaysale.actual_shipping_cost %></td></tr>
+
+        <tr><th>cost</th><td><%= ebaysale.cost %></td></tr>
+    </tbody>
+</table>
+
+<div class="well">
+    <%- link_to('<i class="icon-edit icon-white"></i> Edit', pathTo.edit_ebaysale(ebaysale), {class: 'btn btn-primary'}) %>
+    <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.ebaysale(ebaysale), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
+    or
+    <%- link_to('Back to index', pathTo.ebaysales) %>
+</div>

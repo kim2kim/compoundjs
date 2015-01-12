@@ -1,0 +1,44 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li class="active"><a href="<%- pathTo.ebays() %>">ebays</a> <span class="divider">/</span></li>
+</ul>
+
+<div class="page-header">
+    <h1>Index of ebay</h1>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <p><%- link_to('<i class="icon-plus icon-white"></i> New ebay', pathTo.new_ebay(), {class: 'btn btn-primary'}) %></>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <% if (ebays.length > 0) { %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ebays.forEach(function (ebay) { %>
+                <tr>
+                    <td><strong><%- link_to('ebay #' + ebay.id, pathTo.ebay(ebay)) %></strong></td>
+                    <td>
+                        <%- link_to('<i class="icon-edit"></i> Edit', pathTo.edit_ebay(ebay), {class: 'btn btn-mini'}) %>
+                        <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.ebay(ebay), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'}) %>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p class="alert alert-block alert-info">
+            <strong>No ebays were found.</strong>
+        </p>
+        <% } %>
+    </div>
+</div>
